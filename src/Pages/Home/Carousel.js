@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
 import data from '../../carouselData.json'
 
 const Carousel = () => {
