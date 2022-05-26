@@ -21,7 +21,7 @@ const NavBar = () => {
                 </div>
                 <a href="/" className="btn btn-ghost normal-case text-3xl font-mono font-light ml-10 text-center">Moto<span className='text-rose-500'>Monster</span></a>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-center hidden lg:flex lg:justify-between">
                 <ul className="menu menu-horizontal p-0">
                     {menuItems}
                 </ul>
