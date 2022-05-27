@@ -1,8 +1,24 @@
 import React, { useRef } from 'react';
+import { Link, useLocation, useMatch, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import PrimaryButton from '../Shared/PrimaryButton';
+import Loading from '../Shared/Loading'
+import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
 
 const Register = () => {
 
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+
+
+    const match = useMatch('/signup')
 
     const nameRef = useRef('')
     const emailRef = useRef('')
@@ -16,8 +32,31 @@ const Register = () => {
         const email = emailRef.current.value;
         const password = passRef.current.value;
 
-        console.log(email, password);
+        createUserWithEmailAndPassword(email, password)
     };
+
+
+    const navigate = useNavigate()
+
+
+    let location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
+
+
+    if (user) {
+        // toast.success('Account created successfully!!!')
+        alert('Account created successfully!!!')
+        navigate(from, { replace: true });
+    }
+    if (error) {
+        alert('Could not create your account at this time! Please Try Again Later!')
+        // Toast is not working properly
+        // toast.error('Could not create your account at this time! Please Try Again Later!')
+    }
+    if (loading) {
+        return <Loading></Loading>
+    }
 
 
     return (
@@ -25,7 +64,10 @@ const Register = () => {
             <div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-1">
 
                 <div className="text-primary m-6">
-
+                    <div className='text-center mb-3'>
+                        <Link className={match ? '' : ' text-gray-50 '} to='/login'>LOGIN</Link>
+                        <Link className={match ? 'bg-rose-800 text-gray-50 px-10 py-2 rounded-lg mt-4 ml-2 hover:bg-rose-600' : ''} to='/signup'>REGISTER</Link>
+                    </div>
                     <div className="flex items-center mt-3 justify-center">
                         <h1 className="text-2xl  font-medium text-primary mt-2 mb-6">
                             Create A New Account

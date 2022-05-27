@@ -1,8 +1,23 @@
 import React, { useRef } from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useMatch, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 import PrimaryButton from '../Shared/PrimaryButton';
 
 const Login = () => {
 
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+
+    const match = useMatch('/login')
 
     const emailRef = useRef('')
     const passRef = useRef('')
@@ -11,10 +26,26 @@ const Login = () => {
         event.preventDefault()
         const email = emailRef.current.value
         const password = passRef.current.value
-        console.log(email, password)
+        signInWithEmailAndPassword(email, password)
     };
 
+    const navigate = useNavigate()
 
+
+    let location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
+
+    if (user) {
+        navigate(from, { replace: true });
+    }
+    if (error) {
+        alert('Login Failed! Please Try Again Later!')
+        // toast.success('Account Login Failed! Please Try Again!')
+    }
+    if (loading) {
+        return <Loading></Loading>
+    }
 
 
     return (
@@ -26,6 +57,10 @@ const Login = () => {
                 <div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-1">
 
                     <div className="text-primary m-6">
+                        <div className='text-center mb-3'>
+                            <Link className={match ? 'bg-rose-800 text-gray-50 px-10 py-2 rounded-lg mt-4 mr-2 hover:bg-rose-600' : ''} to='/login'>LOGIN</Link>
+                            <Link className={match ? '' : ' text-gray-50'} to='/signup'>REGISTER</Link>
+                        </div>
                         <div className="flex items-center mt-3 justify-center">
                             <h1 className="text-2xl font-medium text-primary mt-2 mb-6">
                                 Login to your account
