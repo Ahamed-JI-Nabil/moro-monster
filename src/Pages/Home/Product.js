@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PrimaryButton from '../Shared/PrimaryButton';
 
 const Product = ({ product }) => {
 
@@ -29,7 +30,7 @@ const Product = ({ product }) => {
             </div>
 
             <div className='flex justify-center items-stretch'>
-                <Link to={`/updateitem/${_id}`}><button className='bg-rose-800 text-gray-50 px-6 py-1 rounded-lg mt-4 hover:bg-rose-600'>Buy Now</button></Link>
+                <Link to={`/updateitem/${_id}`}><PrimaryButton>Buy Now</PrimaryButton></Link>
             </div>
 
         </div>
