@@ -10,8 +10,8 @@ const BusinessSummary = () => {
     return (
         <div className='my-20'>
             <div className='text-center uppercase '>
-                <h2 className='text-3xl font-extrabold font-serif mb-4 text-rose-600'>Million Business Trust Us</h2>
-                <h4 className='text-xl font-mono'>Try to understand user expectation</h4>
+                <h2 className='text-3xl font-extrabold mb-4 '>Million Business <span className='text-rose-500'>Trust Us</span></h2>
+                <h4 className='text-xl '>Try to understand user expectation</h4>
             </div>
             <div class="stats bg-primary text-primary-content flex flex-col sm:flex-row ml-32 mt-16">
                 <div class="stat">
