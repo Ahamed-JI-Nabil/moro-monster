@@ -58,7 +58,7 @@ const Login = () => {
                         </form>
                         <div className="flex items-center mt-3 justify-center">
                             <button className={"justify-center text-blue-500 hover:underline"}>
-                                Need to register? Sign up for free
+                                Dont Have An Account? Sign up for free
                             </button>
                         </div>
                     </div>

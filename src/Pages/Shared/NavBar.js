@@ -6,6 +6,7 @@ const NavBar = () => {
     const menuItems = <>
         <li><a href="/" className='hover:text-rose-500'>Item 1</a></li>
         <li><Link to="/login" className='hover:text-rose-500'>Login</Link></li>
+        <li><Link to="/signup" className='hover:text-rose-500'>Signup</Link></li>
     </>
 
 
