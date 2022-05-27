@@ -4,7 +4,8 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import PrimaryButton from '../Shared/PrimaryButton';
 import Loading from '../Shared/Loading'
 import auth from '../../firebase.init';
-import { toast } from 'react-toastify';
+import SocialLogin from './SocialLogin';
+
 
 const Register = () => {
 
@@ -117,6 +118,10 @@ const Register = () => {
                             <PrimaryButton>SignUp</PrimaryButton>
                         </div>
                     </form>
+                    <div>
+                        <div className="divider font-bold visible ">OR</div>
+                        <SocialLogin></SocialLogin>
+                    </div>
                     <div className="flex items-center mt-3 justify-center">
                         <button className={"justify-center text-blue-500 hover:underline"}>
                             Already Have An Account? Please Sign In.

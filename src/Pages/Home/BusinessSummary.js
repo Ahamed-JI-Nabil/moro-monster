@@ -13,31 +13,31 @@ const BusinessSummary = () => {
                 <h2 className='text-3xl font-extrabold mb-4 '>Million Business <span className='text-rose-500'>Trust Us</span></h2>
                 <h4 className='text-xl '>Try to understand user expectation</h4>
             </div>
-            <div class="stats bg-primary text-primary-content flex flex-col sm:flex-row ml-32 mt-16">
-                <div class="stat">
+            <div className="stats bg-primary text-primary-content flex flex-col sm:flex-row ml-32 mt-16">
+                <div className="stat">
                     <img className='w-20' src={flag} alt="" />
-                    <div class="stat-value text-rose-700">72</div>
-                    <h4 class="text-lg ">Countries</h4>
+                    <div className="stat-value text-rose-700">72</div>
+                    <h4 className="text-lg ">Countries</h4>
                 </div>
-                <div class="stat">
+                <div className="stat">
                     <img className='w-20' src={shipped} alt="" />
-                    <div class="stat-value text-rose-700">2500+</div>
-                    <h4 class="text-lg ">Countries</h4>
+                    <div className="stat-value text-rose-700">2500+</div>
+                    <h4 className="text-lg ">Countries</h4>
                 </div>
-                <div class="stat">
+                <div className="stat">
                     <img className='w-20' src={client} alt="" />
-                    <div class="stat-value text-rose-700">5000+</div>
-                    <h4 class="text-lg ">Countries</h4>
+                    <div className="stat-value text-rose-700">5000+</div>
+                    <h4 className="text-lg ">Countries</h4>
                 </div>
-                <div class="stat">
+                <div className="stat">
                     <img className='w-20' src={revenue} alt="" />
-                    <div class="stat-value text-rose-700">120M+</div>
-                    <h4 class="text-lg ">Countries</h4>
+                    <div className="stat-value text-rose-700">120M+</div>
+                    <h4 className="text-lg ">Countries</h4>
                 </div>
-                <div class="stat">
+                <div className="stat">
                     <img className='w-20' src={review} alt="" />
-                    <div class="stat-value text-rose-700">33K+</div>
-                    <h4 class="text-lg ">Countries</h4>
+                    <div className="stat-value text-rose-700">33K+</div>
+                    <h4 className="text-lg ">Countries</h4>
                 </div>
             </div>
         </div>

@@ -7,12 +7,12 @@ const Product = ({ product }) => {
     const { _id, productName, price, availableQuantity, minimumOrderQuantity, imageUrl } = product
 
     const reting = <>
-        <div class="rating">
-            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
-            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+        <div className="rating">
+            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
         </div>
     </>
 
@@ -30,7 +30,7 @@ const Product = ({ product }) => {
             </div>
 
             <div className='flex justify-center items-stretch'>
-                <Link to={`/updateitem/${_id}`}><PrimaryButton>Buy Now</PrimaryButton></Link>
+                <Link to={`/purchase/${_id}`}><PrimaryButton>Buy Now</PrimaryButton></Link>
             </div>
 
         </div>

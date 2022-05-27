@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useMatch, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import PrimaryButton from '../Shared/PrimaryButton';
+import SocialLogin from './SocialLogin';
 
 const Login = () => {
 
@@ -50,9 +50,6 @@ const Login = () => {
 
     return (
         <div>
-            <div>
-
-            </div>
             <figure className="h-screen flex bg-gray-100">
                 <div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-1">
 
@@ -91,6 +88,10 @@ const Login = () => {
                                 <PrimaryButton>Login</PrimaryButton>
                             </div>
                         </form>
+                        <div>
+                            <div className="divider font-bold visible ">OR</div>
+                            <SocialLogin></SocialLogin>
+                        </div>
                         <div className="flex items-center mt-3 justify-center">
                             <button className={"justify-center text-blue-500 hover:underline"}>
                                 Dont Have An Account? Sign up for free
