@@ -8,6 +8,7 @@ const NavBar = () => {
 
     const [user,] = useAuthState(auth);
 
+
     const handleSignOut = () => {
         signOut(auth)
     }
@@ -16,8 +17,10 @@ const NavBar = () => {
         <li><a href="/" className='hover:text-rose-500'>Item 1</a></li>
         {user ?
             <>
+                <li><Link className="hover:text-rose-500" to='/myorders'>My Orders</Link></li>
+                <li><Link className="hover:text-rose-500" to='/dashboard'>Dashboard</Link></li>
+                <li><p className='hover:text-rose-500 '><sup className=''>User</sup>{user?.displayName}</p></li>
                 <li><Link className="hover:text-rose-500" onClick={handleSignOut} to='/login'>Logout</Link></li>
-
             </>
             :
             <li><Link className="hover:text-rose-500" to='/login'>Login</Link></li>

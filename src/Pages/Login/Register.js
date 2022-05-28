@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Link, useLocation, useMatch, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import PrimaryButton from '../Shared/PrimaryButton';
 import Loading from '../Shared/Loading'
 import auth from '../../firebase.init';
@@ -17,7 +17,7 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
-
+    const [updateProfile, updating] = useUpdateProfile(auth);
 
     const match = useMatch('/signup')
 
@@ -27,13 +27,14 @@ const Register = () => {
 
 
 
-    const handleSubmitRegister = event => {
+    const handleSubmitRegister = async event => {
         event.preventDefault()
-        // const name = nameRef.current.value;
+        const displayName = nameRef.current.value;
         const email = emailRef.current.value;
         const password = passRef.current.value;
 
-        createUserWithEmailAndPassword(email, password)
+        await createUserWithEmailAndPassword(email, password)
+        await updateProfile({ displayName })
     };
 
 
