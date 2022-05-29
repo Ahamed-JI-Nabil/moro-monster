@@ -1,29 +1,14 @@
 import { useEffect, useState } from "react"
 
-const useAllUsers = user => {
-    const [allUsers, setAllUsers] = useState('')
+const useAllUsers = () => {
+    const [users, setUsers] = useState([])
 
     useEffect(() => {
-        const email = user?.user?.email
-        const currentUser = { email: email }
-        if (email) {
-            fetch(`http://localhost:5000/users/${email}`, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(currentUser)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    setAllUsers(data)
-                })
-        }
-
-    }, [user])
-
-    return [allUsers]
+        fetch('http://localhost:5000/users')
+            .then(res => res.json())
+            .then(data => setUsers(data))
+    }, [])
+    return [users, setUsers]
 }
 
-export default useAllUsers;
+export default useAllUsers

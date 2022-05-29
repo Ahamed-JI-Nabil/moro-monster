@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useMatch, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import useAllUsers from '../../Hooks/useAllUsers';
+import useUpdateUser from '../../Hooks/useUpdateUser';
 import Loading from '../Shared/Loading';
 import PrimaryButton from '../Shared/PrimaryButton';
 import SocialLogin from './SocialLogin';
@@ -32,7 +32,7 @@ const Login = () => {
 
     const navigate = useNavigate()
 
-    const [allUsers] = useAllUsers(user)
+    const [allUsers] = useUpdateUser(user)
 
     let location = useLocation();
 

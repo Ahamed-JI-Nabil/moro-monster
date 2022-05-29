@@ -5,7 +5,7 @@ import PrimaryButton from '../Shared/PrimaryButton';
 import Loading from '../Shared/Loading'
 import auth from '../../firebase.init';
 import SocialLogin from './SocialLogin';
-import useAllUsers from '../../Hooks/useAllUsers';
+import useUpdateUser from '../../Hooks/useUpdateUser';
 
 
 const Register = () => {
@@ -41,7 +41,7 @@ const Register = () => {
 
     const navigate = useNavigate()
 
-    const [allUsers] = useAllUsers(user)
+    const [allUsers] = useUpdateUser(user)
 
     let location = useLocation();
 

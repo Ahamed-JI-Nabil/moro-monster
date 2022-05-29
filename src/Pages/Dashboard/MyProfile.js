@@ -43,7 +43,7 @@ const MyProfile = () => {
 
     }
 
-
+    console.log(user);
 
     return (
         <div className=' mt-4'>

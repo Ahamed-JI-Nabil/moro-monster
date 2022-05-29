@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useAllUsers from '../../../Hooks/useAllUsers';
 import UserTable from './UserTable';
 
 const MakeAdmin = () => {
 
-    const [users, setUsers] = useState([])
-
-    useEffect(() => {
-        fetch('http://localhost:5000/users')
-            .then(res => res.json())
-            .then(data => setUsers(data))
-    }, [])
+    const [users] = useAllUsers([])
 
     return (
         <div>

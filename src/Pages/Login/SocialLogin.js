@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import google from '../../Images/icons/google.png'
-import useAllUsers from '../../Hooks/useAllUsers';
+import useUpdateUser from '../../Hooks/useUpdateUser';
 
 
 
@@ -19,7 +19,7 @@ const SocialLogin = () => {
 
     let from = location.state?.from?.pathname || "/";
 
-    const [allUsers] = useAllUsers(user)
+    const [allUsers] = useUpdateUser(user)
 
     if (user) {
         navigate(from, { replace: true });
