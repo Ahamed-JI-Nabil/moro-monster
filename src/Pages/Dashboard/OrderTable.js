@@ -45,7 +45,7 @@ const OrderTable = ({ order }) => {
                                 ${price}
                             </td>
                             <td className="px-6 py-4 text-right">
-                                <button onClick={() => handleDeleteItem(_id)} className='bg-gray-900 text-gray-50 px-6 py-1 rounded-lg'>Delete</button>
+                                <button onClick={() => handleDeleteItem(_id)} className='bg-rose-900 text-gray-50 px-6 py-1 rounded-lg'>Delete</button>
                             </td>
                         </tr>
 
