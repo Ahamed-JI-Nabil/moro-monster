@@ -9,6 +9,9 @@ import Footer from './Pages/Shared/Footer';
 import NavBar from './Pages/Shared/NavBar';
 import RequireAuth from './Pages/Login/RequireAuth';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import MyProfile from './Pages/Dashboard/MyProfile';
+import MyOrders from './Pages/Dashboard/MyOrders';
+import AddReview from './Pages/Dashboard/AddReview';
 
 
 function App() {
@@ -24,11 +27,15 @@ function App() {
             <Purchase></Purchase>
           </RequireAuth>
         }></Route>
-        <Route path='/dashboard' element={
+        <Route path='dashboard' element={
           <RequireAuth>
             <Dashboard></Dashboard>
           </RequireAuth>
-        }></Route>
+        }>
+          <Route index element={<RequireAuth><MyProfile></MyProfile></RequireAuth>}></Route>
+          <Route path='myorders' element={<RequireAuth><MyOrders></MyOrders></RequireAuth>}></Route>
+          <Route path='addreview' element={<RequireAuth><AddReview></AddReview></RequireAuth>}></Route>
+        </Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer />

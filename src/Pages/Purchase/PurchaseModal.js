@@ -2,8 +2,8 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
-const PurchaseModal = ({ product, quantityRef, setModal }) => {
-    const { _id, productName, price, productDescription, availableQuantity, minimumOrderQuantity, imageUrl } = product
+const PurchaseModal = ({ product, quantityRef, setModal, handleExistingQuantity }) => {
+    const { _id, productName, price, imageUrl } = product
     const [user] = useAuthState(auth)
     const quantity = quantityRef.current.value
     const time = new Date().toDateString()
@@ -12,8 +12,10 @@ const PurchaseModal = ({ product, quantityRef, setModal }) => {
         event.preventDefault()
 
         const orderDetails = {
-            pId: _id,
-            pName: productName,
+            Id: _id,
+            Name: productName,
+            price,
+            imageUrl,
             userName: user.displayName,
             userEmail: user.email,
             userPhone: event.target.phone.value,
@@ -32,6 +34,7 @@ const PurchaseModal = ({ product, quantityRef, setModal }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                handleExistingQuantity()
                 setModal(null)
             })
 
@@ -41,11 +44,11 @@ const PurchaseModal = ({ product, quantityRef, setModal }) => {
 
     return (
         <div>
-            <input type="checkbox" id="purchase-modal" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                    <label for="purchase-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 class="font-bold text-lg">{productName}</h3>
+            <input type="checkbox" id="purchase-modal" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                    <label for="purchase-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <h3 className="font-bold text-lg">{productName}</h3>
                     <form onSubmit={handleConfirmOrder} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
                         <input type="text" name="name" disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
                         <input type="email" name="email" disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
