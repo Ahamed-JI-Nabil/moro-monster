@@ -29,7 +29,7 @@ const Dashboard = () => {
             </div>
             <div className="drawer-side">
                 <label for="dashboard-sidebar" className="drawer-overlay"></label>
-                <ul className="menu p-4 overflow-y-auto w-48">
+                <ul className="menu p-4 overflow-y-auto w-48 bg-white">
                     <li className='hover:text-rose-500'><Link to="/dashboard">My Profile</Link></li>
                     {isAdmin ?
                         <>
