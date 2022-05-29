@@ -1,11 +1,25 @@
 import React from 'react';
+import useAllProducts from '../../Hooks/useAllProducts';
 
 const OrderTable = ({ order }) => {
 
-    const { _id, pName, price, imageUrl, userName, userEmail, userPhone, userAddress, orderedQuantity, orderedTime } = order
+    const [products, setProducts] = useAllProducts([])
 
-    const handleDeleteItem = _id => {
+    const { _id, Name, price, imageUrl, userName, userEmail, userPhone, userAddress, orderedQuantity, orderedTime } = order
 
+    const handleDeleteItem = id => {
+        const proceed = window.confirm('Are you sure you want to delete this item?')
+        if (proceed) {
+            fetch(`http://localhost:5000/orders/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const remaining = products.filter(product => product._id !== id)
+                    setProducts(remaining)
+                })
+        }
     }
 
 
@@ -19,7 +33,7 @@ const OrderTable = ({ order }) => {
                                 <img className='w-16 h-16' src={imageUrl} alt="" />
                             </th>
                             <th className="pl-6 pr-0 py-4 font-medium text-gray-900  ">
-                                {pName}
+                                {Name}
                             </th>
                             <td className="px-6 py-4">
                                 {orderedQuantity}
