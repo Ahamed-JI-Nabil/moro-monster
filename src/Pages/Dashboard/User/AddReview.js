@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
+import auth from '../../../firebase.init';
 
 const AddReview = () => {
     const [user] = useAuthState(auth)
@@ -37,11 +37,11 @@ const AddReview = () => {
                 <h2 className='text-xl text-center font-bold mb-7'>Add Review!</h2>
                 <p className='label-text'>Your Name</p>
                 <input ref={nameRef} type="text" name="name" disabled value={user?.displayName || ''} className="input input-bordered w-full " />
-                <div class="form-control mt-4">
-                    <label class="label">
-                        <span class="label-text">Your Thoughts</span>
+                <div className="form-control mt-4">
+                    <label className="label">
+                        <span className="label-text">Your Thoughts</span>
                     </label>
-                    <textarea ref={commentRef} class="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
+                    <textarea ref={commentRef} className="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
                     <button onClick={handlePostReview} className='bg-rose-800 text-gray-50 px-10 py-1 rounded-lg mt-6 hover:bg-rose-600'>Post Comment</button>
                 </div>
             </div>

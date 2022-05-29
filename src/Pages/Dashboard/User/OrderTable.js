@@ -1,5 +1,5 @@
 import React from 'react';
-import useAllProducts from '../../Hooks/useAllProducts';
+import useAllProducts from '../../../Hooks/useAllProducts';
 
 const OrderTable = ({ order }) => {
 

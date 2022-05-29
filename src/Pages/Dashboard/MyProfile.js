@@ -16,6 +16,7 @@ const MyProfile = () => {
 
         const updateInfo = {
             name: nameRef.current.value,
+            email: user.email,
             number: numberRef.current.value,
             education: educationRef.current.value,
             location: locationRef.current.value,
@@ -23,7 +24,7 @@ const MyProfile = () => {
         }
 
 
-        fetch(`http://localhost:5000/users/:${user.email}`, {
+        fetch(`http://localhost:5000/users/${user.email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
