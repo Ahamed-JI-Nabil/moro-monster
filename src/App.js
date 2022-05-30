@@ -16,6 +16,7 @@ import MyOrders from './Pages/Dashboard/User/MyOrders';
 import AddProduct from './Pages/Dashboard/Admin/AddProduct';
 import ManageProducts from './Pages/Dashboard/Admin/ManageAllProducts';
 import ManageAllOrders from './Pages/Dashboard/Admin/ManageAllOrders';
+import NotFound from './Pages/Shared/NotFound';
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           <Route path='allorders' element={<RequireAuth><ManageAllOrders></ManageAllOrders></RequireAuth>}></Route>
           <Route path='manageproduct' element={<RequireAuth><ManageProducts></ManageProducts></RequireAuth>}></Route>
         </Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer />
