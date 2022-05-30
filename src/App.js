@@ -14,7 +14,7 @@ import AddReview from './Pages/Dashboard/User/AddReview';
 import MakeAdmin from './Pages/Dashboard/Admin/MakeAdmin';
 import MyOrders from './Pages/Dashboard/User/MyOrders';
 import AddProduct from './Pages/Dashboard/Admin/AddProduct';
-import ManageProducts from './Pages/Dashboard/Admin/ManageProducts';
+import ManageProducts from './Pages/Dashboard/Admin/ManageAllProducts';
 import ManageAllOrders from './Pages/Dashboard/Admin/ManageAllOrders';
 
 

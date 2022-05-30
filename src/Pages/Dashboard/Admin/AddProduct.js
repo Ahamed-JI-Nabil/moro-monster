@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
+
+    const navigate = useNavigate()
 
     const handleAddProducts = event => {
         event.preventDefault()
@@ -24,7 +27,7 @@ const AddProduct = () => {
             .then(res => res.json())
             .then(data => {
                 alert('Product Added Successfully')
-                console.log(data)
+                navigate('/')
                 event.target.reset()
             })
 

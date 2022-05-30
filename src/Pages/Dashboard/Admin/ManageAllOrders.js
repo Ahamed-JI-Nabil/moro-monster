@@ -14,7 +14,7 @@ const ManageAllOrders = () => {
 
     return (
         <div>
-            <h2>Total Orders: {orders.length}</h2>
+            <h2 className='text-center text-lg font-semibold py-3'>Total Orders: {orders.length}</h2>
             <div>
                 <div class="overflow-x-auto">
                     <table class="table w-full">
