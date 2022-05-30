@@ -10,7 +10,7 @@ const OrderTable = ({ order }) => {
     const handleDeleteItem = id => {
         const proceed = window.confirm('Are you sure you want to delete this item?')
         if (proceed) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://young-harbor-42670.herokuapp.com/orders/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

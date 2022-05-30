@@ -8,7 +8,6 @@ const ManageProducts = () => {
 
     return (
         <div className='mb-8'>
-            <h2>this is manage all products.</h2>
             <div>
                 <div class="overflow-x-auto">
                     <table class="table w-full">

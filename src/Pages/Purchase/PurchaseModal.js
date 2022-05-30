@@ -24,7 +24,7 @@ const PurchaseModal = ({ product, quantityRef, setModal, handleExistingQuantity 
             orderedTime: time
         }
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://young-harbor-42670.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

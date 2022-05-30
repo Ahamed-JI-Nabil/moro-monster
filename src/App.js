@@ -17,6 +17,8 @@ import AddProduct from './Pages/Dashboard/Admin/AddProduct';
 import ManageProducts from './Pages/Dashboard/Admin/ManageAllProducts';
 import ManageAllOrders from './Pages/Dashboard/Admin/ManageAllOrders';
 import NotFound from './Pages/Shared/NotFound';
+import MyPortfolio from './Pages/Shared/MyPortfolio';
+import Blogs from './Pages/Shared/Blogs';
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Register></Register>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='/myportfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/purchase/:id' element={
           <RequireAuth>
             <Purchase></Purchase>

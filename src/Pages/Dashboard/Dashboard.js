@@ -10,14 +10,15 @@ const Dashboard = () => {
 
     const [userRole, setUserRole] = useState([])
 
-    const [isAdmin, setIsAdmin] = useState(userRole.role === 'admin' ? false : true)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user.email}`)
+        fetch(`https://young-harbor-42670.herokuapp.com/user/${user.email}`)
             .then(res => res.json())
-            .then(data => setUserRole(data))
-    }, [])
+            .then(data => {
+                setUserRole(data)
 
+            })
+    }, [])
 
 
     return (
@@ -31,7 +32,7 @@ const Dashboard = () => {
                 <label for="dashboard-sidebar" className="drawer-overlay"></label>
                 <ul className="menu p-4 overflow-y-auto w-48 bg-white">
                     <li className='hover:text-rose-500'><Link to="/dashboard">My Profile</Link></li>
-                    {isAdmin ?
+                    {userRole.role === 'admin' ?
                         <>
                             <li className='hover:text-rose-500'><Link to="/dashboard/addproduct">Add A Product</Link></li>
                             <li className='hover:text-rose-500'><Link to="/dashboard/allorders">Manage All Orders</Link></li>

@@ -14,7 +14,8 @@ const NavBar = () => {
     }
 
     const menuItems = <>
-        <li><a href="/" className='hover:text-rose-500'>Item 1</a></li>
+        <li><Link to='/blogs' className='hover:text-rose-500'>Blogs</Link></li>
+        <li><Link to='/myportfolio' className='hover:text-rose-500'>My Portfolio</Link></li>
         {user ?
             <>
                 <li><Link className="hover:text-rose-500" to='/dashboard'>Dashboard</Link></li>

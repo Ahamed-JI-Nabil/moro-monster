@@ -17,7 +17,7 @@ const AddReview = () => {
             comment: commentRef.current.value
         }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://young-harbor-42670.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
