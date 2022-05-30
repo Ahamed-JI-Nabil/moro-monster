@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import PurchaseModal from './PurchaseModal';
 
 
@@ -28,6 +28,8 @@ const Purchase = () => {
     }
     const [modal, setModal] = useState(null)
 
+    const navigate = useNavigate()
+
     const handleExistingQuantity = () => {
 
 
@@ -46,6 +48,8 @@ const Purchase = () => {
         })
             .then(res => res.json())
             .then(data => {
+                alert('Order Placed Successfully!!!')
+                navigate('/')
                 quantityRef.current.value = ''
             })
 

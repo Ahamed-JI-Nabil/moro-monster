@@ -41,7 +41,7 @@ const AddProduct = () => {
                         </div>
                         <div className="flex items-center justify-center">
                             <h1 className="text-2xl font-medium mb-6">
-                                Add New Product
+                                Add A New Product
                             </h1>
                         </div>
                         <form onSubmit={handleAddProducts}>

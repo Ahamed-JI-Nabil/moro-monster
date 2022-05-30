@@ -16,7 +16,7 @@ const PurchaseModal = ({ product, quantityRef, setModal, handleExistingQuantity 
             Name: productName,
             price,
             imageUrl,
-            userName: user.displayName,
+            userName: user?.displayName || event.target.name.value,
             userEmail: user.email,
             userPhone: event.target.phone.value,
             userAddress: event.target.address.value,
@@ -50,10 +50,10 @@ const PurchaseModal = ({ product, quantityRef, setModal, handleExistingQuantity 
                     <label for="purchase-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="font-bold text-lg">{productName}</h3>
                     <form onSubmit={handleConfirmOrder} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
-                        <input type="text" name="name" disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
+                        <input type="text" required name="name" disabled={user.displayName && true} value={user?.displayName} className="input input-bordered w-full max-w-xs" />
                         <input type="email" name="email" disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
-                        <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
-                        <input type="text" name="address" placeholder="Address" className="input input-bordered w-full max-w-xs" />
+                        <input type="text" required name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
+                        <input type="text" required name="address" placeholder="Address" className="input input-bordered w-full max-w-xs" />
                         <input type="number" name="quantity" placeholder="Ordered Quantity" disabled value={quantity} className="input input-bordered w-full max-w-xs" />
                         <input type="submit" value="Confirm Order" className="bg-rose-800 text-gray-50 px-10 py-2 rounded-lg mt-4 hover:bg-rose-600 w-full max-w-xs" />
                     </form>
